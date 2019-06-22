@@ -9,6 +9,8 @@ gem 'rails', '~> 5.2.3'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+# JSON api resources
+gem 'jsonapi-resources'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -31,6 +33,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Testing
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  # Model annotations
+  gem 'annotate', require: false
 end
 
 group :development do
@@ -38,6 +45,20 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Style enforcement
+  gem 'rubocop'
+end
+
+group :test do
+  # Spec coverage
+  gem 'simplecov'
+
+  # Additional spec matchers
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'jsonapi-resources-matchers', '~> 1.0.0'
+
+  # Empty test db between specs
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
